@@ -273,8 +273,6 @@ public class LocationActivity extends AppCompatActivity
             return;
         }
 
-        cityName = result.getAddressDetail().city;
-
         List<PoiInfo> list = result.getPoiList();
         if (list != null && list.size() > 0) {
             nearAddresses.clear();
@@ -308,6 +306,9 @@ public class LocationActivity extends AppCompatActivity
                     .latitude(location.getLatitude())
                     .longitude(location.getLongitude()).build();
             mBaiduMap.setMyLocationData(locData);
+
+            cityName = location.getCity();
+
             if (isFirstLoc) {
                 isFirstLoc = false;
                 LatLng ll = new LatLng(location.getLatitude(),
