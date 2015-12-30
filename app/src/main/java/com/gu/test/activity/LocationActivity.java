@@ -273,6 +273,8 @@ public class LocationActivity extends AppCompatActivity
             return;
         }
 
+        cityName = result.getAddressDetail().city;
+
         List<PoiInfo> list = result.getPoiList();
         if (list != null && list.size() > 0) {
             nearAddresses.clear();
